@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+body													{ overflow-x: hidden; }
+.row													{ margin: 0; } 
+.container-fluid										{ padding: 0; } 
+
+/* MENU */
+.menu .logo-menu img 									{ margin-top: 13px; }
+@media (max-width: 767px) 								{ .menu .logo-menu img { margin-left: 25px; } }
+
+/* INTRODUÇÃO */
+.div-introducao 										{ margin-top: 50px; background-color: #3e67b1; }
+.div-introducao .div-sub 								{ background-color: #0041b2; }
+.div-introducao h1 										{ color: #fff; }
+.div-introducao h2 										{ color: #fff; }
+.div-introducao a 										{ text-decoration: none; }
+
+/* RODAPÉ */
+.div-rodape 											{ background-color: #1659bf; margin-top: 30px;}
+.div-rodape .div-copyright 								{ background-color: #0041b2; }
+.div-rodape p 											{ color: #fff; }
+.div-rodape p a											{ color: #fff; }
+.div-rodape ul											{ list-style:none; padding-left: 0; margin-top: 20px; }
+.div-rodape ul li										{ display: inline; color: #fff; }
+.div-rodape ul li a										{ color: #fff; font-size: 15px; text-transform:uppercase;}
+
+

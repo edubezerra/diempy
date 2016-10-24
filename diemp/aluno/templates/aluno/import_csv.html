@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Importar Alunos{% endblock title %}
+
+{% block content %}
+<!-- OVERVIEW -->
+<div class="row">
+    <div class="container"  id="jqImport">
+        <h1>Importar CSV</h1>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="jqLoading alert alert-info hide">Carregando...</div>
+            {% if success %}
+                <div class="alert alert-success">Arquivo Importado com Sucesso!!!</div>
+            {% elif error %}
+                <div class="alert alert-danger">Este arquivo não tem um programa importado!!!</div>
+            {% endif %}
+             <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                 {{ form.non_field_errors }}
+                 <div class="form-group">
+                    <label for="{{ form.file.id_for_label }}">{{ form.file.label }}</label>
+                        {% if form.file.errors %}
+                            <div class="alert alert-danger">{{ form.file.errors }}</div>
+                        {% endif %}
+                        {{ form.file }}
+                 </div>
+                 <input  class="jqEnviar btn btn-primary" type="submit" value="Enviar"/>
+             </form>
+        </div>
+    </div>
+</div>
+<!-- OVERVIEW -->
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'js/aluno/import.js' %}"></script>
+{% endblock script %}

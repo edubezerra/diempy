@@ -1,0 +1,1 @@
+web: gunicorn diemp.wsgi --log-file -

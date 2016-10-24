@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}DIEMP - Divisão de Integração Empresarial{% endblock title %}</title>
+
+	<link rel="shortcut icon" href="{% static 'img/cefet-icon.ico'  %}" />
+	<link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/base.css' %}" rel="stylesheet" />
+
+    {% block style %}
+    {% endblock style %}
+
+</head>
+<body>
+	<div class="container-fluid" id="jqHome">
+	<!-- MENU -->
+	 <nav class="menu navbar navbar-default navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a rel="jqAncoraHome" href="/" class="brand logo-menu"><img src="{% static 'img/cefet-icon.ico' %}" width="24" height="24" /></a>
+
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+		        <ul class="nav navbar-nav navbar-right">
+					<!--<li><a href="#cadastro-aluno">Cadastro de alunos</a></li>
+					<li><a href="#cadastro-vagas">Cadastro de vagas</a></li>
+					<li><a href="/empresa/">Cadastro de empresas</a></li>-->
+                    {% if not request.user.is_authenticated %}
+                        <li><a href="{% url 'login:login' %}">Login</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login:logout' %}">Sair</a></li>
+                    {% endif %}
+
+		        </ul>
+	        </div>
+	      </div>
+	    </nav>
+	<!-- MENU -->
+
+	<!-- INTRODUÇÃO -->
+		<div class="row div-introducao">
+			<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<a rel="jqAncoraHome" href="/" class="brand logo-menu"><h1><strong>DIEMP</strong></h1></a>
+				</div>
+			</div>
+			<div class="div-sub">
+				<div class="container">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h2>Sistema de oferta de estágio</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- INTRODUÇÃO -->
+        {% block content %}
+        {% endblock content %}
+
+	<!-- RODAPÉ -->
+	<footer class="row div-rodape">
+        <div class="container">
+            <div class="div-conteudo">
+                <nav>
+                    <ul>
+                        <li class="li-home"><a href="/">Home</a></li>
+                        <li class="li-barra">|</li>
+                        <li><a href="/contatos/">Contatos</a></li>
+                        <!--<li class="li-barra">|</li>
+                        <li class="li-termos"><a href="/termos/">Termos de Uso</a></li>-->
+
+                    </ul>
+                </nav>
+                <!-- <p>Email: <span class="span-email"><a href="mailto:diemp@diemp.com.br">diemp@diemp.com.br</a></span></p> -->
+            </div>
+        </div>
+        <div class="div-copyright">
+            <div class="container">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p class="text-center">© 2016 DIEMP - Divisão de Integração Empresarial</p>
+                </div>
+            </div>
+        </div>
+	</footer>
+	<!-- RODAPÉ -->
+
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    {% block script %}
+    {% endblock script %}
+
+</body>
+</html>
