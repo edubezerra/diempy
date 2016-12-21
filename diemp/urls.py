@@ -19,10 +19,6 @@ from django.conf.urls import url, include
 #from diemp.core.views import home
 
 urlpatterns = [
-    #url(r'^diemp/', home),
     url(r'^diemp/', include('diemp.core.urls')),
-    url(r'^aluno-diemp/', include('diemp.aluno.urls', namespace='aluno')),
-    url(r'^login-diemp/', include('diemp.login.urls', namespace='login')),
     url(r'^jet/', include('jet.urls', 'jet')),
-    #url(r'^admin-dimep/', admin.site.urls),
 ]
